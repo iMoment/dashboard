@@ -3,6 +3,7 @@ const applications = [
     id: 1,
     name: 'John Smith',
     position: 'Server',
+    image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png',
     applied: '03/15/16',
     experience: 2,
     availability: {
@@ -25,6 +26,7 @@ const applications = [
     id: 2,
     name: 'Jane Smith',
     position: 'Cook',
+    image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png',
     applied: '02/08/16',
     experience: 4,
     availability: {
@@ -47,6 +49,7 @@ const applications = [
     id: 3,
     name: 'David Jessup',
     position: 'Chef',
+    image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png',
     applied: '03/08/16',
     experience: 2,
     availability: {
@@ -69,6 +72,7 @@ const applications = [
     id: 4,
     name: 'Clay vanSchalkwijk',
     position: 'Cook',
+    image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png',
     applied: '03/08/16',
     experience: 1,
     availability: {
@@ -83,6 +87,98 @@ const applications = [
     questions: [
       {
         text: 'Are you authorized to work in the United States?',
+        answer: 'Yes',
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: 'Darth Vader',
+    position: 'Front-End',
+    image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png',
+    applied: '04/16/17',
+    experience: 6,
+    availability: {
+      M: 2,
+      T: 2,
+      W: 1,
+      Th: 2,
+      F: 1,
+      S: 0,
+      Su: 0,
+    },
+    questions: [
+      {
+        text: 'Have you ever traveled abroad?',
+        answer: 'Yes',
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: 'Luke Skywalker',
+    position: 'Back-End',
+    image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png',
+    applied: '05/17/18',
+    experience: 9,
+    availability: {
+      M: 2,
+      T: 2,
+      W: 1,
+      Th: 2,
+      F: 1,
+      S: 0,
+      Su: 0,
+    },
+    questions: [
+      {
+        text: 'Do you own a toaster?',
+        answer: 'No',
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: 'Bill Clinton',
+    position: 'UI/UX Designer',
+    image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/039.png',
+    applied: '06/18/19',
+    experience: 3,
+    availability: {
+      M: 2,
+      T: 2,
+      W: 1,
+      Th: 2,
+      F: 1,
+      S: 0,
+      Su: 0,
+    },
+    questions: [
+      {
+        text: 'Do you require a visa for work in the United States?',
+        answer: 'No',
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: 'Joe Biden',
+    position: 'President',
+    image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/043.png',
+    applied: '07/19/20',
+    experience: 4,
+    availability: {
+      M: 2,
+      T: 2,
+      W: 1,
+      Th: 2,
+      F: 1,
+      S: 0,
+      Su: 0,
+    },
+    questions: [
+      {
+        text: 'Do you have access to a computer at home?',
         answer: 'Yes',
       },
     ],
