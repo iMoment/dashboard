@@ -1,4 +1,4 @@
-const applicants = [
+const applications = [
   {
     id: 1,
     name: 'John Smith',
@@ -89,4 +89,4 @@ const applicants = [
   },
 ]
 
-export default applicants
+export default applications
