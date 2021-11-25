@@ -9,7 +9,7 @@ function App() {
     <main>
       <section className='dashboard section'>
         <div className='title'>
-          <h2>/ Dashboard</h2>
+          <h2>/ Dashboard /</h2>
           <div className='underline'></div>
         </div>
 
