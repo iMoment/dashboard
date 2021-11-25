@@ -138,7 +138,7 @@ p {
 
 /*
 =============== 
-Menu
+Dashboard
 ===============
 */
 
@@ -185,39 +185,11 @@ Menu
   display: grid;
   gap: 3rem 2rem;
   justify-items: center;
-
-  /* width: 90vw;
-  margin: 5rem 0;
-  max-width: var(--fixed-width);
-  background: var(--clr-white);
-  border-radius: var(--radius);
-  padding: 1.5rem 2rem;
-  box-shadow: var(--dark-shadow); */
 }
-.menu-item {
+.applicant {
   display: grid;
   gap: 1rem 2rem;
   max-width: 25rem;
-}
-.person {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 0.75rem;
-  margin-bottom: 1.5rem;
-  align-items: center;
-}
-.person img {
-  width: 75px;
-  height: 75px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: var(--light-shadow);
-}
-.person h4 {
-  margin-bottom: 0.35rem;
-}
-.person p {
-  margin-bottom: 0;
 }
 .photo {
   object-fit: cover;
@@ -227,24 +199,24 @@ Menu
   border-radius: var(--radius);
   display: block;
 }
-.item-info header {
+.applicant-info header {
   display: flex;
   justify-content: space-between;
   border-bottom: 0.5px dotted var(--clr-grey-5);
 }
-.item-info h4 {
+.applicant-info h4 {
   margin-bottom: 0.5rem;
 }
-.price {
+.position {
   color: var(--clr-gold);
 }
-.item-text {
+.applicant-text {
   margin-bottom: 0;
   padding-top: 1rem;
 }
 
 @media screen and (min-width: 768px) {
-  .menu-item {
+  .applicant {
     grid-template-columns: 225px 1fr;
     gap: 0 1.25rem;
     max-width: 40rem;
