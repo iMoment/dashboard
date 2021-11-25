@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import ApplicantPreview from './ApplicantPreview'
-import applications from './data'
+import React from 'react'
+import { FaBars } from 'react-icons/fa'
 
 // React Router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -26,20 +25,6 @@ function App() {
       </Switch>
     </Router>
   )
-  // const [applicants, setApplicants] = useState(applications)
-
-  // return (
-  //   <main>
-  //     <section className='dashboard section'>
-  //       <div className='title'>
-  //         <h2>/ Dashboard /</h2>
-  //         <div className='underline'></div>
-  //       </div>
-
-  //       <ApplicantPreview applications={applicants} />
-  //     </section>
-  //   </main>
-  // )
 }
 
 export default App
