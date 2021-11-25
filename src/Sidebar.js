@@ -20,7 +20,7 @@ const Sidebar = () => {
   return (
     <aside className={`sidebar`}>
       <div className='sidebar-header'>
-        <h2>My Dashboard</h2>
+        <h4>My Dashboard</h4>
         <button className='close-btn'>
           <FaTimes />
         </button>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaBars } from 'react-icons/fa'
+import Sidebar from './Sidebar'
 
 // React Router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -12,6 +13,10 @@ import Error from './Error'
 function App() {
   return (
     <Router>
+      <button className='sidebar-toggle'>
+        <FaBars />
+      </button>
+      <Sidebar />
       <Switch>
         <Route exact path='/'>
           <Home />
