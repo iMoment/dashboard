@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import applications from './data'
 import { Link } from 'react-router-dom'
 
-const ApplicantPreview = ({ applications }) => {
+const ApplicantPreview = () => {
+  const [applicants, setApplicants] = useState(applications)
+
   return (
     <div className='section-center'>
-      {applications.map((application) => {
-        const { id, name, position, image, description } = application
+      {applicants.map((applicant) => {
+        const { id, name, position, image, description } = applicant
         return (
           <article key={id} className='applicant'>
             <img src={image} alt={name} className='photo' />

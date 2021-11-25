@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import ApplicantPreview from './ApplicantPreview'
-import applications from './data'
+// import applications from './data'
 
 const Home = () => {
-  const [applicants, setApplicants] = useState(applications)
+  // const [applicants, setApplicants] = useState(applications)
 
   return (
     <main>
@@ -13,7 +13,8 @@ const Home = () => {
           <div className='underline'></div>
         </div>
 
-        <ApplicantPreview applications={applicants} />
+        {/* <ApplicantPreview applicants={applicants} /> */}
+        <ApplicantPreview />
       </section>
     </main>
   )

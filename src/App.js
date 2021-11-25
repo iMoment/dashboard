@@ -17,7 +17,9 @@ function App() {
         <Route exact path='/'>
           <Home />
         </Route>
-        <Route path='applicant/:id' children={<ApplicantFullDetail />}></Route>
+
+        <Route path='/applicant/:id' children={<ApplicantFullDetail />}></Route>
+
         <Route path='*'>
           <Error />
         </Route>
