@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ApplicantPreview = ({ applications }) => {
   return (
@@ -17,6 +18,7 @@ const ApplicantPreview = ({ applications }) => {
                 0,
                 200
               )}...`}</p>
+              <Link to={`/applicant/${id}`}>See More</Link>
             </div>
           </article>
         )
