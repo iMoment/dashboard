@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaTimes, FaHome, FaStar } from 'react-icons/fa'
+import { useGlobalContext } from './context'
 
 const links = [
   {
@@ -17,11 +18,12 @@ const links = [
 ]
 
 const Sidebar = () => {
+  const { isSidebarShown, hideSidebar } = useGlobalContext()
   return (
-    <aside className={`sidebar`}>
+    <aside className={`${isSidebarShown ? 'sidebar show-sidebar' : 'sidebar'}`}>
       <div className='sidebar-header'>
-        <h4>My Dashboard</h4>
-        <button className='close-btn'>
+        <h3>My Dashboard</h3>
+        <button className='close-btn' onClick={hideSidebar}>
           <FaTimes />
         </button>
       </div>
