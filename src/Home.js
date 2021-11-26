@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import SortFilter from './SortFilter'
 import ApplicantPreview from './ApplicantPreview'
 
 const Home = () => {
+  const [name, setName] = useState('')
+
+  const handleFilter = (e) => {
+    e.preventDefault()
+    console.log('This is a test.')
+  }
+
   return (
     <main>
       <section className='dashboard section'>
@@ -9,6 +17,7 @@ const Home = () => {
           <h2>/ Dashboard</h2>
           <div className='underline'></div>
         </div>
+        <SortFilter />
 
         <ApplicantPreview />
       </section>
