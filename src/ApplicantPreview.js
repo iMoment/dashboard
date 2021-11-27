@@ -3,8 +3,8 @@ import applications from './data'
 import { FaStar } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
-const ApplicantPreview = () => {
-  const [applicants, setApplicants] = useState(applications)
+const ApplicantPreview = ({ applicants }) => {
+  // const [applicants, setApplicants] = useState(applications)
 
   return (
     <div className='section-center'>

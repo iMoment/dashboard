@@ -2,6 +2,24 @@ import React, { useState, useEffect } from 'react'
 import applications from './data'
 import { Link, useParams } from 'react-router-dom'
 
+// Helper variables
+const daysDictionary = {
+  M: 'Monday',
+  T: 'Tuesday',
+  W: 'Wednesday',
+  Th: 'Thursday',
+  F: 'Friday',
+  S: 'Saturday',
+  Su: 'Sunday',
+}
+
+const availability = {
+  0: 'Morning',
+  1: 'Afternoon',
+  2: 'Evening',
+}
+
+// ApplicantFullDetail component
 const ApplicantFullDetail = () => {
   const [applicant, setApplicant] = useState('Default Name')
   console.log(useParams())
@@ -13,6 +31,7 @@ const ApplicantFullDetail = () => {
     )
     setApplicant(newApplicant)
   }, [])
+
   return (
     <div>
       <article className='single-applicant'>
@@ -23,11 +42,13 @@ const ApplicantFullDetail = () => {
             className='person-img'
           />
         </div>
+        <p className='applicant-id'>Applicant ID: {applicant.id}</p>
         <h4 className='author'>{applicant.name}</h4>
-        <p className='position'>{applicant.position}</p>
-        <p className='applied'>{applicant.applied}</p>
-        <p className='experience'>{applicant.experience} years</p>
-        <p className='info'>{applicant.description}</p>
+        <p className='position'>Applied position: {applicant.position}</p>
+        <p className='applied'>Application date: {applicant.applied}</p>
+        <p className='experience'>Experience: {applicant.experience} years</p>
+        <p className='info'>Description: {applicant.description}</p>
+        <p className='availability'>Availability: </p>
       </article>
 
       <Link to='/' className='btn'>

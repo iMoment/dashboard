@@ -1,13 +1,36 @@
-import React, { useState, useEffect } from 'react'
-import SortFilter from './SortFilter'
+import React, { useState } from 'react'
+import applications from './data'
+
+// React Components
 import ApplicantPreview from './ApplicantPreview'
 
+// Component Start
 const Home = () => {
-  const [name, setName] = useState('')
+  const [filterName, setFilterName] = useState('')
+  const [filteredApplicants, setFilteredApplicants] = useState(applications)
+
+  const showAllApplicants = () => {
+    setFilteredApplicants(applications)
+  }
 
   const handleFilter = (e) => {
     e.preventDefault()
-    console.log('This is a test.')
+    console.log('Filter button was pressed.')
+
+    if (!filterName) {
+      // filter text was empty, handle (show all)
+      showAllApplicants()
+    } else {
+      // filter applicants based on filter text
+      setFilteredApplicants(
+        applications.filter((applicant) => {
+          const applicantName = applicant.name.toLowerCase()
+          const inputName = filterName.toLowerCase()
+          return applicantName.includes(inputName)
+        })
+      )
+      setFilterName('')
+    }
   }
 
   return (
@@ -17,9 +40,39 @@ const Home = () => {
           <h2>/ Dashboard</h2>
           <div className='underline'></div>
         </div>
-        <SortFilter />
 
-        <ApplicantPreview />
+        <div className='btn-container'>
+          <button
+            type='button'
+            className='sort-btn'
+            onClick={showAllApplicants}
+          >
+            All
+          </button>
+          <button type='button' className='sort-btn'>
+            Name
+          </button>
+          <button type='button' className='sort-btn'>
+            ID
+          </button>
+
+          <form className='filter-form' onSubmit={handleFilter}>
+            <div className='form-control'>
+              <input
+                type='text'
+                className='filter-input'
+                placeholder='Enter a name'
+                value={filterName}
+                onChange={(e) => setFilterName(e.target.value)}
+              />
+              <button type='submit' className='filter-btn'>
+                Filter
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <ApplicantPreview applicants={filteredApplicants} />
       </section>
     </main>
   )

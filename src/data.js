@@ -25,7 +25,7 @@ const applications = [
   },
   {
     id: 2,
-    name: 'Jane Smith',
+    name: 'Duane Taylor',
     position: 'Cook',
     image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png',
     applied: '02/08/16',
@@ -195,7 +195,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
   {
     id: 9,
     name: 'Homer Simpson',
-    position: 'Drunk Man',
+    position: 'Chief Executive Officer',
     image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/050.png',
     applied: '02/14/15',
     experience: 14,
@@ -242,7 +242,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
   },
   {
     id: 11,
-    name: 'Jesus Christ',
+    name: 'Tom Hanks',
     position: 'Soccer Coach',
     image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png',
     applied: '07/18/06',
