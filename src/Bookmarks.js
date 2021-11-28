@@ -16,6 +16,7 @@ const Bookmarks = () => {
       </div>
 
       <ApplicantPreview applicants={bookmarkedApplicants} />
+
       <Link to='/' className='btn'>
         Back to Dashboard
       </Link>

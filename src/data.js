@@ -22,6 +22,7 @@ const applications = [
         answer: 'No',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 2,
@@ -46,6 +47,7 @@ const applications = [
         answer: 'Yes',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 3,
@@ -70,6 +72,7 @@ const applications = [
         answer: 'Yes',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 4,
@@ -94,6 +97,7 @@ const applications = [
         answer: 'Yes',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 5,
@@ -119,6 +123,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
         answer: 'Yes',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 6,
@@ -143,6 +148,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
         answer: 'No',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 7,
@@ -167,6 +173,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
         answer: 'No',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 8,
@@ -191,6 +198,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
         answer: 'Yes',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 9,
@@ -215,6 +223,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
         answer: 'Yes',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 10,
@@ -239,6 +248,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
         answer: 'No',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 11,
@@ -263,6 +273,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
         answer: 'Yes',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 12,
@@ -287,6 +298,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
         answer: 'Yes',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 13,
@@ -312,6 +324,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
         answer: 'Yes',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 14,
@@ -336,6 +349,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
         answer: 'No',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 15,
@@ -360,6 +374,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
         answer: 'Yes',
       },
     ],
+    isFavorite: false,
   },
   {
     id: 16,
@@ -384,6 +399,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
         answer: 'No',
       },
     ],
+    isFavorite: false,
   },
 ]
 

@@ -381,9 +381,6 @@ Sidebar
   color: var(--clr-white);
 }
 
-/*
-Test
-*/
 .filter-input {
   padding: 0.25rem;
   padding-left: 1rem;
@@ -399,3 +396,32 @@ Test
   font-family: var(--ff-secondary);
   color: var(--clr-grey-5);
 }
+
+.bookmark-btn {
+  font-size: 1.25rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-primary-5);
+  transition: var(--transition);
+  cursor: pointer;
+  margin-top: 0.2rem;
+}
+
+.bookmark-selected-btn {
+  font-size: 1.25rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-gold);
+  transition: var(--transition);
+  cursor: pointer;
+  margin-top: 0.2rem;
+}
+
+.more-and-bookmark {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*
+Test
+*/

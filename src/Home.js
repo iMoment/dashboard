@@ -4,13 +4,23 @@ import applications from './data'
 // React Components
 import ApplicantPreview from './ApplicantPreview'
 
+// Helper variables
+const getLocalStorage = () => {
+  let applicants = localStorage.getItem('applicants')
+  if (applicants) {
+    return JSON.parse(localStorage.getItem('applicants'))
+  } else {
+    return applications
+  }
+}
+
 // Component Start
 const Home = () => {
   const [filterName, setFilterName] = useState('')
-  const [filteredApplicants, setFilteredApplicants] = useState(applications)
+  const [applicants, setApplicants] = useState(getLocalStorage())
 
   const showAllApplicants = () => {
-    setFilteredApplicants(applications)
+    setApplicants(getLocalStorage())
   }
 
   const handleFilter = (e) => {
@@ -18,12 +28,10 @@ const Home = () => {
     console.log('Filter button was pressed.')
 
     if (!filterName) {
-      // filter text was empty, handle (show all)
       showAllApplicants()
     } else {
-      // filter applicants based on filter text
-      setFilteredApplicants(
-        applications.filter((applicant) => {
+      setApplicants(
+        applicants.filter((applicant) => {
           const applicantName = applicant.name.toLowerCase()
           const inputName = filterName.toLowerCase()
           return applicantName.includes(inputName)
@@ -72,7 +80,10 @@ const Home = () => {
           </form>
         </div>
 
-        <ApplicantPreview applicants={filteredApplicants} />
+        <ApplicantPreview
+          applicants={applicants}
+          setApplicants={setApplicants}
+        />
       </section>
     </main>
   )
