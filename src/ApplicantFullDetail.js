@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import applications from './data'
 import { Link, useParams } from 'react-router-dom'
 
-// Helper variables
+// Helper variables/functions
 const daysDictionary = {
   M: 'Monday',
   T: 'Tuesday',
@@ -19,7 +19,7 @@ const availability = {
   2: 'Evening',
 }
 
-// ApplicantFullDetail component
+// React Component Start
 const ApplicantFullDetail = () => {
   const [applicant, setApplicant] = useState('Default Name')
   console.log(useParams())

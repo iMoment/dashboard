@@ -16,63 +16,61 @@ const getLocalStorage = () => {
 // React Component Start
 const ApplicantPreview = ({
   applicants,
+  bookmarkedApplicants,
   setApplicants,
   inBookmarksPage,
-  setInBookmarksPage,
 }) => {
   const [bookmarkPressed, setBookmarkPressed] = useState(false)
   const notInitialRender = useRef(false)
 
+  // MARK - Bookmark function
   const toggleBookmark = (id) => {
-    console.log('Toggle bookmark button was pressed.')
-    console.log(id)
+    setApplicants(
+      getLocalStorage().map((applicant) => {
+        if (applicant.id === id) {
+          return { ...applicant, isFavorite: !applicant.isFavorite }
+        }
+        return applicant
+      })
+    )
 
-    if (inBookmarksPage) {
-      setApplicants(
-        getLocalStorage().map((applicant) => {
-          if (applicant.id === id) {
-            return { ...applicant, isFavorite: !applicant.isFavorite }
-          }
-          return applicant
-        })
-      )
-      setBookmarkPressed(!bookmarkPressed)
-    } else {
-      setApplicants(
-        applicants.map((applicant) => {
-          if (applicant.id === id) {
-            return { ...applicant, isFavorite: !applicant.isFavorite }
-          }
-          return applicant
-        })
-      )
-      setBookmarkPressed(!bookmarkPressed)
-    }
+    setBookmarkPressed(!bookmarkPressed)
   }
+
   // Save applicants to local storage everytime bookmarkToggle is set from toggleBookmark function
   useEffect(() => {
     if (notInitialRender.current) {
-      localStorage.setItem('applicants', JSON.stringify(applicants))
+      if (inBookmarksPage) {
+        localStorage.setItem('applicants', JSON.stringify(bookmarkedApplicants))
+
+        const newApplicants = bookmarkedApplicants.filter(
+          (applicant) => applicant.isFavorite === true
+        )
+        localStorage.setItem(
+          'bookmarkedApplicants',
+          JSON.stringify(newApplicants)
+        )
+      } else {
+        localStorage.setItem('applicants', JSON.stringify(applicants))
+        // TEST
+        const bookmarkedApplicants = applicants.filter(
+          (applicant) => applicant.isFavorite === true
+        )
+        localStorage.setItem(
+          'bookmarkedApplicants',
+          JSON.stringify(bookmarkedApplicants)
+        )
+      }
     } else {
       notInitialRender.current = true
     }
-
-    // localStorage.setItem('applicants', JSON.stringify(applicants))
-    // notInitialRender.current = inBookmarksPage ? false : true
-
-    // if (notInitialRender.current) {
-    //   localStorage.setItem('applicants', JSON.stringify(applicants))
-    // } else if (inBookmarksPage && !notInitialRender.current) {
-    //   notInitialRender.current = true
-    // } else {
-    //   localStorage.setItem('applicants', JSON.stringify(applicants))
-    // }
   }, [bookmarkPressed])
 
   return (
     <div className='section-center'>
       {applicants.map((applicant) => {
         const { id, name, position, image, description, isFavorite } = applicant
+
         return (
           <article key={id} className='applicant'>
             <img src={image} alt={name} className='photo' />
