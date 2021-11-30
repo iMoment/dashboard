@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import applications from './data'
 
 // React Components
@@ -16,10 +16,14 @@ const getLocalStorage = () => {
 
 // React Component Start
 const Home = () => {
+  const [sortNameAscending, setSortNameAscending] = useState(true)
+  const [sortIDAscending, setSortIDAscending] = useState(true)
   const [filterName, setFilterName] = useState('')
   const [applicants, setApplicants] = useState(getLocalStorage())
 
   const showAllApplicants = () => {
+    setSortNameAscending(true)
+    setSortIDAscending(true)
     setApplicants(getLocalStorage())
   }
 
@@ -40,6 +44,38 @@ const Home = () => {
     }
   }
 
+  const handleSortByName = (e) => {
+    e.preventDefault()
+    console.log('Sort by name was pressed.')
+    setSortNameAscending(!sortNameAscending)
+
+    if (sortNameAscending) {
+      const sorted = [...applicants].sort((a, b) =>
+        a['name'].localeCompare(b['name'])
+      )
+      setApplicants(sorted)
+    } else {
+      const sorted = [...applicants].sort((a, b) =>
+        b['name'].localeCompare(a['name'])
+      )
+      setApplicants(sorted)
+    }
+  }
+
+  const handleSortByID = (e) => {
+    e.preventDefault()
+    console.log('Sort by id was pressed.')
+    setSortIDAscending(!sortIDAscending)
+
+    if (sortIDAscending) {
+      const sorted = [...applicants].sort((a, b) => a['id'] - b['id'])
+      setApplicants(sorted)
+    } else {
+      const sorted = [...applicants].sort((a, b) => b['id'] - a['id'])
+      setApplicants(sorted)
+    }
+  }
+
   return (
     <main>
       <section className='dashboard section'>
@@ -56,11 +92,11 @@ const Home = () => {
           >
             All
           </button>
-          <button type='button' className='sort-btn'>
-            Name
+          <button type='button' className='sort-btn' onClick={handleSortByName}>
+            {sortNameAscending ? 'Name(Asc)' : 'Name(Desc)'}
           </button>
-          <button type='button' className='sort-btn'>
-            ID
+          <button type='button' className='sort-btn' onClick={handleSortByID}>
+            {sortIDAscending ? 'ID(Asc)' : 'ID(Desc)'}
           </button>
 
           <form onSubmit={handleFilter}>
