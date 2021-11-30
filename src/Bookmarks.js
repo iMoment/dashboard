@@ -5,8 +5,23 @@ import { Link } from 'react-router-dom'
 // React Components
 import ApplicantPreview from './ApplicantPreview'
 
+// Helper variables
+const getLocalStorage = () => {
+  let applicants = localStorage.getItem('applicants')
+  if (applicants) {
+    return JSON.parse(localStorage.getItem('applicants'))
+  } else {
+    return applications
+  }
+}
+
 const Bookmarks = () => {
-  const [bookmarkedApplicants, setBookmarkedApplicants] = useState(applications)
+  const [inBookmarksPage, setInBookmarksPage] = useState(true)
+  const [applicants, setApplicants] = useState(getLocalStorage())
+
+  const filteredApplicants = applicants.filter(
+    (applicant) => applicant.isFavorite == true
+  )
 
   return (
     <section className='dashboard section'>
@@ -15,7 +30,11 @@ const Bookmarks = () => {
         <div className='underline'></div>
       </div>
 
-      <ApplicantPreview applicants={bookmarkedApplicants} />
+      <ApplicantPreview
+        applicants={filteredApplicants}
+        inBookmarksPage={inBookmarksPage}
+        setInBookmarksPage={setInBookmarksPage}
+      />
 
       <Link to='/' className='btn'>
         Back to Dashboard

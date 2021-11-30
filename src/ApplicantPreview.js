@@ -1,34 +1,73 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import applications from './data'
 import { FaStar } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
-const ApplicantPreview = ({ applicants, setApplicants }) => {
-  const [bookmarkToggle, setBookmarkToggle] = useState(false)
-  const [bookmarkID, setBookmarkID] = useState(null)
-  const [bookmarkedApplicants, setBookmarkedApplicants] = useState([])
+// Helper variables/functions
+const getLocalStorage = () => {
+  let applicants = localStorage.getItem('applicants')
+  if (applicants) {
+    return JSON.parse(localStorage.getItem('applicants'))
+  } else {
+    return applications
+  }
+}
+
+// React Component Start
+const ApplicantPreview = ({
+  applicants,
+  setApplicants,
+  inBookmarksPage,
+  setInBookmarksPage,
+}) => {
+  const [bookmarkPressed, setBookmarkPressed] = useState(false)
+  const notInitialRender = useRef(false)
 
   const toggleBookmark = (id) => {
     console.log('Toggle bookmark button was pressed.')
     console.log(id)
-    setBookmarkToggle(!bookmarkToggle)
 
-    setApplicants(
-      applicants.map((applicant) => {
-        if (applicant.id === id) {
-          console.log(
-            `Applicant with id of: ${id} was changed to ${!applicant.isFavorite}`
-          )
-          return { ...applicant, isFavorite: !applicant.isFavorite }
-        }
-        return applicant
-      })
-    )
+    if (inBookmarksPage) {
+      setApplicants(
+        getLocalStorage().map((applicant) => {
+          if (applicant.id === id) {
+            return { ...applicant, isFavorite: !applicant.isFavorite }
+          }
+          return applicant
+        })
+      )
+      setBookmarkPressed(!bookmarkPressed)
+    } else {
+      setApplicants(
+        applicants.map((applicant) => {
+          if (applicant.id === id) {
+            return { ...applicant, isFavorite: !applicant.isFavorite }
+          }
+          return applicant
+        })
+      )
+      setBookmarkPressed(!bookmarkPressed)
+    }
   }
-  // Save applicants to local storage everytime bookmarkID is set from toggleBookmark
+  // Save applicants to local storage everytime bookmarkToggle is set from toggleBookmark function
   useEffect(() => {
-    localStorage.setItem('applicants', JSON.stringify(applicants))
-  }, [bookmarkToggle])
+    if (notInitialRender.current) {
+      localStorage.setItem('applicants', JSON.stringify(applicants))
+    } else {
+      notInitialRender.current = true
+    }
+
+    // localStorage.setItem('applicants', JSON.stringify(applicants))
+    // notInitialRender.current = inBookmarksPage ? false : true
+
+    // if (notInitialRender.current) {
+    //   localStorage.setItem('applicants', JSON.stringify(applicants))
+    // } else if (inBookmarksPage && !notInitialRender.current) {
+    //   notInitialRender.current = true
+    // } else {
+    //   localStorage.setItem('applicants', JSON.stringify(applicants))
+    // }
+  }, [bookmarkPressed])
 
   return (
     <div className='section-center'>

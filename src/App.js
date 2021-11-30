@@ -1,7 +1,9 @@
 import React from 'react'
 import { FaBars } from 'react-icons/fa'
-import Sidebar from './Sidebar'
 import { AppContext, useGlobalContext } from './context'
+
+// App Components
+import Sidebar from './Sidebar'
 
 // React Router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -12,8 +14,10 @@ import Bookmarks from './Bookmarks'
 import ApplicantFullDetail from './ApplicantFullDetail'
 import Error from './Error'
 
+// Component Start
 function App() {
   const { showSidebar } = useGlobalContext()
+
   return (
     <Router>
       <button className='sidebar-toggle' onClick={showSidebar}>

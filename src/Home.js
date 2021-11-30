@@ -4,7 +4,7 @@ import applications from './data'
 // React Components
 import ApplicantPreview from './ApplicantPreview'
 
-// Helper variables
+// Helper variables/functions
 const getLocalStorage = () => {
   let applicants = localStorage.getItem('applicants')
   if (applicants) {

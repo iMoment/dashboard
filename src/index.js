@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import { AppProvider } from './context'
+
+// React Components
 import App from './App'
 
 ReactDOM.render(
