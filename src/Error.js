@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// React Component Start
 const Error = () => {
   return (
     <div className='container'>

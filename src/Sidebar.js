@@ -2,11 +2,12 @@ import React from 'react'
 import { FaTimes, FaHome, FaStar } from 'react-icons/fa'
 import { useGlobalContext } from './context'
 
+// Helper variables/functions
 const links = [
   {
     id: 1,
     url: '/',
-    text: 'home',
+    text: 'Home',
     icon: <FaHome />,
   },
   {
@@ -17,8 +18,10 @@ const links = [
   },
 ]
 
+// React Component Start
 const Sidebar = () => {
   const { isSidebarShown, hideSidebar } = useGlobalContext()
+
   return (
     <aside className={`${isSidebarShown ? 'sidebar show-sidebar' : 'sidebar'}`}>
       <div className='sidebar-header'>
@@ -27,6 +30,7 @@ const Sidebar = () => {
           <FaTimes />
         </button>
       </div>
+
       <ul className='links'>
         {links.map((link) => {
           const { id, url, text, icon } = link

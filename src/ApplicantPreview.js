@@ -33,34 +33,23 @@ const ApplicantPreview = ({
         return applicant
       })
     )
-
     setBookmarkPressed(!bookmarkPressed)
   }
 
-  // Save applicants to local storage everytime bookmarkToggle is set from toggleBookmark function
+  const saveToStorage = (applicants) => {
+    localStorage.setItem('applicants', JSON.stringify(applicants))
+    const newApplicants = applicants.filter(
+      (applicant) => applicant.isFavorite === true
+    )
+    localStorage.setItem('bookmarkedApplicants', JSON.stringify(newApplicants))
+  }
+
+  // Save applicants to local storage every time bookmarkToggle is set from toggleBookmark function
   useEffect(() => {
     if (notInitialRender.current) {
-      if (inBookmarksPage) {
-        localStorage.setItem('applicants', JSON.stringify(bookmarkedApplicants))
-
-        const newApplicants = bookmarkedApplicants.filter(
-          (applicant) => applicant.isFavorite === true
-        )
-        localStorage.setItem(
-          'bookmarkedApplicants',
-          JSON.stringify(newApplicants)
-        )
-      } else {
-        localStorage.setItem('applicants', JSON.stringify(applicants))
-        // TEST
-        const bookmarkedApplicants = applicants.filter(
-          (applicant) => applicant.isFavorite === true
-        )
-        localStorage.setItem(
-          'bookmarkedApplicants',
-          JSON.stringify(bookmarkedApplicants)
-        )
-      }
+      inBookmarksPage
+        ? saveToStorage(bookmarkedApplicants)
+        : saveToStorage(applicants)
     } else {
       notInitialRender.current = true
     }

@@ -14,7 +14,7 @@ const getLocalStorage = () => {
   }
 }
 
-// Component Start
+// React Component Start
 const Home = () => {
   const [filterName, setFilterName] = useState('')
   const [applicants, setApplicants] = useState(getLocalStorage())
@@ -25,7 +25,6 @@ const Home = () => {
 
   const handleFilter = (e) => {
     e.preventDefault()
-    console.log('Filter button was pressed.')
 
     if (!filterName) {
       showAllApplicants()
@@ -64,7 +63,7 @@ const Home = () => {
             ID
           </button>
 
-          <form className='filter-form' onSubmit={handleFilter}>
+          <form onSubmit={handleFilter}>
             <div className='form-control'>
               <input
                 type='text'

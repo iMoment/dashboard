@@ -1,20 +1,18 @@
 import React from 'react'
 import { FaBars } from 'react-icons/fa'
-import { AppContext, useGlobalContext } from './context'
-
-// App Components
 import Sidebar from './Sidebar'
+import { AppContext, useGlobalContext } from './context'
 
 // React Router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-// Pages for Router
+// Component Pages for Router
 import Home from './Home'
 import Bookmarks from './Bookmarks'
 import ApplicantFullDetail from './ApplicantFullDetail'
 import Error from './Error'
 
-// Component Start
+// React Component Start
 function App() {
   const { showSidebar } = useGlobalContext()
 
@@ -24,6 +22,7 @@ function App() {
         <FaBars />
       </button>
       <Sidebar />
+
       <Switch>
         <Route exact path='/'>
           <Home />

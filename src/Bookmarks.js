@@ -1,22 +1,12 @@
 import React, { useState } from 'react'
-import applications from './data'
 import { Link } from 'react-router-dom'
 
 // React Components
 import ApplicantPreview from './ApplicantPreview'
 
-// Helper variables
-// const getLocalStorage = () => {
-//   let applicants = localStorage.getItem('applicants')
-//   if (applicants) {
-//     return JSON.parse(localStorage.getItem('applicants'))
-//   } else {
-//     return applications
-//   }
-// }
+// Helper variables/functions
 const getLocalStorage = () => {
   let applicants = localStorage.getItem('bookmarkedApplicants')
-
   if (applicants) {
     return JSON.parse(localStorage.getItem('bookmarkedApplicants'))
   } else {
