@@ -29,6 +29,14 @@ const Bookmarks = () => {
         <div className='underline'></div>
       </div>
 
+      {!bookmarkedApplicants.length > 0 ? (
+        <div className='title'>
+          <h3>No bookmarks currently saved...</h3>
+        </div>
+      ) : (
+        <p></p>
+      )}
+
       <ApplicantPreview
         applicants={bookmarkedApplicants}
         setApplicants={setApplicants}
@@ -36,9 +44,11 @@ const Bookmarks = () => {
         inBookmarksPage={inBookmarksPage}
       />
 
-      <Link to='/' className='btn'>
-        Back to Dashboard
-      </Link>
+      <div className='container'>
+        <Link to='/' className='btn'>
+          Back to Dashboard
+        </Link>
+      </div>
     </section>
   )
 }

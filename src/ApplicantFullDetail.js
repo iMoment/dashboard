@@ -21,8 +21,7 @@ const availability = {
 
 // React Component Start
 const ApplicantFullDetail = () => {
-  const [applicant, setApplicant] = useState('Default Name')
-  console.log(useParams())
+  const [applicant, setApplicant] = useState(applications[0])
   const { id } = useParams()
 
   useEffect(() => {
@@ -33,28 +32,39 @@ const ApplicantFullDetail = () => {
   }, [])
 
   return (
-    <div>
-      <article className='single-applicant'>
-        <div className='img-container'>
-          <img
-            src={applicant.image}
-            alt={applicant.name}
-            className='person-img'
-          />
-        </div>
-        <p className='applicant-id'>Applicant ID: {applicant.id}</p>
-        <h4 className='author'>{applicant.name}</h4>
-        <p className='position'>Applied position: {applicant.position}</p>
-        <p className='applied'>Application date: {applicant.applied}</p>
-        <p className='experience'>Experience: {applicant.experience} years</p>
-        <p className='info'>Description: {applicant.description}</p>
-        <p className='availability'>Availability: </p>
-      </article>
+    <article className='review'>
+      <div className='img-container'>
+        <img
+          src={applicant.image}
+          alt={applicant.name}
+          className='person-img'
+        />
+      </div>
+      <h4 className='author'>Applicant ID: {applicant.id}</h4>
+      <h4 className='author'>{applicant.name}</h4>
+      <p className='job'>Applied position: {applicant.position}</p>
+      <p className='applied'>Application date: {applicant.applied}</p>
+      <p className='experience'>Experience: {applicant.experience} years</p>
+      <p className='info'>Description: {applicant.description}</p>
+      <p className='availability'>Availability: </p>
+
+      <div>
+        {Object.keys(applicant.availability).map((keyName, index) => {
+          return (
+            <p>
+              {daysDictionary[keyName]}:{' '}
+              {availability[applicant.availability[keyName]]}
+            </p>
+          )
+        })}
+      </div>
+
+      <div></div>
 
       <Link to='/' className='btn'>
         Back to Dashboard
       </Link>
-    </div>
+    </article>
   )
 }
 
