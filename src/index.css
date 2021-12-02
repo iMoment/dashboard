@@ -498,9 +498,10 @@ Full Detail
 .info {
   margin-bottom: 0.75rem;
 }
-
 /*
-Test
+=====================
+Applicant Full Detail
+=====================
 */
 .applicant-full-section {
   width: 90vw;
@@ -564,3 +565,8 @@ Test
   margin-bottom: 4rem;
   flex-wrap: wrap;
 }
+/*
+=====================
+Test CSS
+=====================
+*/

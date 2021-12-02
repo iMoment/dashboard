@@ -5,6 +5,7 @@ import { AppContext, useGlobalContext } from './context'
 
 // React Router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import ScrollToTop from './ScrollToTop'
 
 // Component Pages for Router
 import Home from './Home'
@@ -18,9 +19,12 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
+
       <button className='sidebar-toggle' onClick={showSidebar}>
         <FaBars />
       </button>
+
       <Sidebar />
 
       <Switch>
