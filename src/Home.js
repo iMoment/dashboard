@@ -115,6 +115,14 @@ const Home = () => {
           </form>
         </div>
 
+        {!applicants.length > 0 ? (
+          <div className='title'>
+            <h3>No applicants were found...</h3>
+          </div>
+        ) : (
+          <p></p>
+        )}
+
         <ApplicantPreview
           applicants={applicants}
           setApplicants={setApplicants}

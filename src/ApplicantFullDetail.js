@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import applications from './data'
 import { Link, useParams } from 'react-router-dom'
+import { FaAngleDoubleRight } from 'react-icons/fa'
 
 // Helper variables/functions
 const daysDictionary = {
@@ -32,7 +33,7 @@ const ApplicantFullDetail = () => {
   }, [])
 
   return (
-    <article className='review'>
+    <section className='section'>
       <div className='img-container'>
         <img
           src={applicant.image}
@@ -40,31 +41,65 @@ const ApplicantFullDetail = () => {
           className='person-img'
         />
       </div>
-      <h4 className='author'>Applicant ID: {applicant.id}</h4>
-      <h4 className='author'>{applicant.name}</h4>
-      <p className='job'>Applied position: {applicant.position}</p>
-      <p className='applied'>Application date: {applicant.applied}</p>
-      <p className='experience'>Experience: {applicant.experience} years</p>
-      <p className='info'>Description: {applicant.description}</p>
-      <p className='availability'>Availability: </p>
 
-      <div>
-        {Object.keys(applicant.availability).map((keyName, index) => {
-          return (
-            <p>
-              {daysDictionary[keyName]}:{' '}
-              {availability[applicant.availability[keyName]]}
-            </p>
-          )
-        })}
+      <div className='jobs-center'>
+        <div className='applicant-id-container'>
+          <h3>Applicant ID: {applicant.id}</h3>
+        </div>
       </div>
 
-      <div></div>
+      {/* Full Info */}
+      <article className='applicant-full-info'>
+        <h3>{applicant.name}</h3>
+        <h4>{applicant.position}</h4>
+        <p>Application Date: {applicant.applied}</p>
+        <p>Experience: {applicant.experience} years</p>
 
-      <Link to='/' className='btn'>
-        Back to Dashboard
-      </Link>
-    </article>
+        {/* Description */}
+        <div className='applicant-desc'>
+          <FaAngleDoubleRight className='job-icon'></FaAngleDoubleRight>
+          <p>{applicant.description}</p>
+        </div>
+
+        {/* Availability */}
+        <div className='applicant-desc'>
+          <FaAngleDoubleRight className='job-icon'></FaAngleDoubleRight>
+          <p className='availability-schedule'>
+            Availability:{' '}
+            {Object.keys(applicant.availability).map((keyName, index) => {
+              return (
+                <p>
+                  {daysDictionary[keyName]}:{' '}
+                  {availability[applicant.availability[keyName]]}
+                </p>
+              )
+            })}
+          </p>
+        </div>
+
+        {/* Questions */}
+        <div className='applicant-desc'>
+          <FaAngleDoubleRight className='job-icon'></FaAngleDoubleRight>
+          <p className='availability-schedule'>
+            [Questions]:{' '}
+            {applicant.questions.map((question) => {
+              return (
+                <div>
+                  <p>{question.text}</p>
+                  <p>{question.answer}</p>
+                </div>
+              )
+            })}
+          </p>
+        </div>
+      </article>
+
+      <div className='back-btn-container'>
+        <Link to='/' className='btn'>
+          Back to Dashboard
+        </Link>
+      </div>
+    </section>
   )
 }
 

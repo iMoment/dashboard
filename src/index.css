@@ -492,7 +492,68 @@ Full Detail
   object-fit: cover;
   border-radius: 50%;
   position: relative;
+  background: var(--clr-white);
 }
 .info {
   margin-bottom: 0.75rem;
+}
+
+/*
+Test
+*/
+.availability {
+  margin-bottom: 0rem;
+}
+.jobs-center {
+  width: 80vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+.applicant-id-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+.applicant-id-container h3 {
+  font-weight: 300;
+}
+.applicant-full-info h3 {
+  font-weight: 500;
+}
+.applicant-full-info h4 {
+  text-transform: uppercase;
+  color: var(--clr-grey-5);
+  background: var(--clr-grey-9);
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius);
+}
+.applicant-full-info p {
+  letter-spacing: var(--spacing);
+}
+.applicant-desc {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 2rem;
+  align-items: top;
+  margin-bottom: 1.25rem;
+}
+.job-icon {
+  color: var(--clr-primary-5);
+}
+.applicant-desc p {
+  margin-bottom: 0;
+  color: var(--clr-grey-3);
+}
+.availability-schedule {
+  font-weight: 600;
+}
+.back-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
 }
