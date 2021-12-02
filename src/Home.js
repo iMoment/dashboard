@@ -19,7 +19,7 @@ const Home = () => {
   const [sortNameAscending, setSortNameAscending] = useState(true)
   const [sortIDAscending, setSortIDAscending] = useState(true)
   const [filterName, setFilterName] = useState('')
-  const [applicants, setApplicants] = useState(getLocalStorage())
+  const [applicants, setApplicants] = useState(applications)
 
   const showAllApplicants = () => {
     setSortNameAscending(true)

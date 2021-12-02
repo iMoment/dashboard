@@ -493,6 +493,7 @@ Full Detail
   border-radius: 50%;
   position: relative;
   background: var(--clr-white);
+  border: 0.2rem solid var(--clr-primary-2);
 }
 .info {
   margin-bottom: 0.75rem;
@@ -501,6 +502,12 @@ Full Detail
 /*
 Test
 */
+.applicant-full-section {
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 2rem;
+  max-width: var(--max-width);
+}
 .availability {
   margin-bottom: 0rem;
 }

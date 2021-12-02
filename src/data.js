@@ -203,7 +203,7 @@ I just told you! You've killed me! Fry! Quit doing the right thing, you jerk! Mi
   {
     id: 9,
     name: 'Homer Simpson',
-    position: 'Chief Executive Officer',
+    position: 'Chief Officer',
     image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/050.png',
     applied: '02/14/15',
     experience: 14,

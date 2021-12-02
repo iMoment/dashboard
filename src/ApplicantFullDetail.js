@@ -33,7 +33,7 @@ const ApplicantFullDetail = () => {
   }, [])
 
   return (
-    <section className='section'>
+    <section className='applicant-full-section'>
       <div className='img-container'>
         <img
           src={applicant.image}
