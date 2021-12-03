@@ -20,15 +20,14 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-
       <button className='sidebar-toggle' onClick={showSidebar}>
         <FaBars />
       </button>
-
       <Sidebar />
 
       <Switch>
         <Route exact path='/'>
+          {/*Checking here*/}
           <Home />
         </Route>
 
