@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaTimes, FaHome, FaStar } from 'react-icons/fa'
-import { useGlobalContext } from './context'
+import { useGlobalContext } from '../context'
 
 // Helper variables/functions
 const links = [

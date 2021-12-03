@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import applications from './data'
 
 // React Components
-import SortFilterBar from './SortFilterBar'
-import ApplicantPreview from './ApplicantPreview'
+import SortFilterBar from './sub-components/SortFilterBar'
+import ApplicantPreview from './main-components/ApplicantPreview'
 
 // Helper variables/functions
 const constants = {

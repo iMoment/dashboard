@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import applications from './data'
+import applications from '../data'
 
 // Helper variables/functions
 const constants = {

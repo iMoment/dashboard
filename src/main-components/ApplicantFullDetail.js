@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import applications from './data'
+import applications from '../data'
 import { Link, useParams } from 'react-router-dom'
 import { FaAngleDoubleRight } from 'react-icons/fa'
 

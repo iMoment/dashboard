@@ -1,17 +1,17 @@
 import React from 'react'
 import { FaBars } from 'react-icons/fa'
-import Sidebar from './Sidebar'
+import Sidebar from './sub-components/Sidebar'
 import { AppContext, useGlobalContext } from './context'
 
 // React Router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import ScrollToTop from './ScrollToTop'
+import ScrollToTop from './sub-components/ScrollToTop'
 
 // Component Pages for Router
 import Home from './Home'
-import Bookmarks from './Bookmarks'
-import ApplicantFullDetail from './ApplicantFullDetail'
-import Error from './Error'
+import Bookmarks from './main-components/Bookmarks'
+import ApplicantFullDetail from './main-components/ApplicantFullDetail'
+import Error from './sub-components/Error'
 
 // React Component Start
 function App() {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import applications from './data'
+import applications from '../data'
 import { FaStar } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
