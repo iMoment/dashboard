@@ -4,10 +4,15 @@ import { FaStar } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 // Helper variables/functions
+const constants = {
+  APPLICANT: 'applicants',
+  BOOKMARKED_APPLICANTS: 'bookmarkedApplicants',
+}
+
 const getLocalStorage = () => {
-  let applicants = localStorage.getItem('applicants')
+  let applicants = localStorage.getItem(constants.APPLICANT)
   if (applicants) {
-    return JSON.parse(localStorage.getItem('applicants'))
+    return JSON.parse(localStorage.getItem(constants.APPLICANT))
   } else {
     return applications
   }
@@ -37,11 +42,14 @@ const ApplicantPreview = ({
   }
 
   const saveToStorage = (applicants) => {
-    localStorage.setItem('applicants', JSON.stringify(applicants))
+    localStorage.setItem(constants.APPLICANT, JSON.stringify(applicants))
     const newApplicants = applicants.filter(
       (applicant) => applicant.isFavorite === true
     )
-    localStorage.setItem('bookmarkedApplicants', JSON.stringify(newApplicants))
+    localStorage.setItem(
+      constants.BOOKMARKED_APPLICANTS,
+      JSON.stringify(newApplicants)
+    )
   }
 
   // Save applicants to local storage every time bookmarkToggle is set from toggleBookmark function

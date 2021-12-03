@@ -5,15 +5,20 @@ import { Link } from 'react-router-dom'
 import ApplicantPreview from './ApplicantPreview'
 
 // Helper variables/functions
+const constants = {
+  BOOKMARKED_APPLICANTS: 'bookmarkedApplicants',
+}
+
 const getLocalStorage = () => {
-  let applicants = localStorage.getItem('bookmarkedApplicants')
+  let applicants = localStorage.getItem(constants.BOOKMARKED_APPLICANTS)
   if (applicants) {
-    return JSON.parse(localStorage.getItem('bookmarkedApplicants'))
+    return JSON.parse(localStorage.getItem(constants.BOOKMARKED_APPLICANTS))
   } else {
     return []
   }
 }
 
+// React Component Start
 const Bookmarks = () => {
   const [inBookmarksPage, setInBookmarksPage] = useState(true)
   const [applicants, setApplicants] = useState(getLocalStorage())
