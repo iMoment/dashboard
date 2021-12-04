@@ -27,7 +27,6 @@ function App() {
 
       <Switch>
         <Route exact path='/'>
-          {/*Checking here*/}
           <Home />
         </Route>
 

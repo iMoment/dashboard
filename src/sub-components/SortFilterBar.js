@@ -34,6 +34,7 @@ const SortFilterBar = ({ applicants, setApplicants }) => {
   }
 
   const handleFilter = (e) => {
+    // Prevent browser from refreshing on submit
     e.preventDefault()
 
     if (!filterName) {
@@ -54,34 +55,28 @@ const SortFilterBar = ({ applicants, setApplicants }) => {
     e.preventDefault()
     setSortNameAscending(!sortNameAscending)
 
-    if (sortNameAscending) {
-      const sorted = [...applicants].sort((a, b) =>
-        a[constants.NAME].localeCompare(b[constants.NAME])
-      )
-      setApplicants(sorted)
-    } else {
-      const sorted = [...applicants].sort((a, b) =>
-        b[constants.NAME].localeCompare(a[constants.NAME])
-      )
-      setApplicants(sorted)
-    }
+    const sorted = [...applicants].sort((a, b) => {
+      if (sortNameAscending) {
+        return a[constants.NAME].localeCompare(b[constants.NAME])
+      } else {
+        return b[constants.NAME].localeCompare(a[constants.NAME])
+      }
+    })
+    setApplicants(sorted)
   }
 
   const handleSortByID = (e) => {
     e.preventDefault()
     setSortIDAscending(!sortIDAscending)
 
-    if (sortIDAscending) {
-      const sorted = [...applicants].sort(
-        (a, b) => a[constants.ID] - b[constants.ID]
-      )
-      setApplicants(sorted)
-    } else {
-      const sorted = [...applicants].sort(
-        (a, b) => b[constants.ID] - a[constants.ID]
-      )
-      setApplicants(sorted)
-    }
+    const sorted = [...applicants].sort((a, b) => {
+      if (sortIDAscending) {
+        return a[constants.ID] - b[constants.ID]
+      } else {
+        return b[constants.ID] - a[constants.ID]
+      }
+    })
+    setApplicants(sorted)
   }
 
   return (
