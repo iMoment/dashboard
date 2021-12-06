@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaBars } from 'react-icons/fa'
 import Sidebar from './sub-components/Sidebar'
-import { AppContext, useGlobalContext } from './context'
+import { useGlobalContext } from './context'
 
 // React Router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
